@@ -10,27 +10,9 @@ namespace NumberGuesser
         // Entry Point Method
         static void Main(string[] args)
         {
-            // Set app vars
-            string appName = "Number Guesser";
-            string appVersion = "1.0.0";
-            string appAuthor = "Daniel Won";
+            GetAppInfo(); // see bottom of the page for details
 
-            // Change text color
-            Console.ForegroundColor = ConsoleColor.Blue;
-
-            // Write out app info
-            Console.WriteLine("{0}: version {1} by {2}", appName, appVersion, appAuthor);
-
-            // Reset text color
-            Console.ResetColor();
-
-            // Ask user's name
-            Console.WriteLine("What is your name?");
-
-            // Get user input
-            string inputName = Console.ReadLine();
-
-            Console.WriteLine($"Hello {inputName}, let's play the game!");
+            GreetUser(); 
 
             while (true)
             {
@@ -116,6 +98,34 @@ namespace NumberGuesser
                     return;
                 }
             }
+        }
+
+        static void GetAppInfo()
+        {
+            // Set app vars
+            string appName = "Number Guesser";
+            string appVersion = "1.0.0";
+            string appAuthor = "Daniel Won";
+
+            // Change text color
+            Console.ForegroundColor = ConsoleColor.Blue;
+
+            // Write out app info
+            Console.WriteLine("{0}: version {1} by {2}", appName, appVersion, appAuthor);
+
+            // Reset text color
+            Console.ResetColor();
+        }
+
+        static void GreetUser()
+        {
+            // Ask user's name
+            Console.WriteLine("What is your name?");
+
+            // Get user input
+            string inputName = Console.ReadLine();
+
+            Console.WriteLine($"Hello {inputName}, let's play the game!");
         }
     }
 }
