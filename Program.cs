@@ -40,14 +40,8 @@ namespace NumberGuesser
                     // Make sure it's a number
                     if (!int.TryParse(input, out guess))
                     {
-                        // Change text color
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        // Not a number message
-                        Console.WriteLine("That's not a number. Please enter a number.");
-
-                        // Reset text color
-                        Console.ResetColor();
+                        // Print error message
+                        PrintColorMessage(ConsoleColor.Red,"That wasn't a number. Please use a number.");
 
                         // Keep going
                         continue;
@@ -59,25 +53,11 @@ namespace NumberGuesser
                     // Match guess to correct number
                     if (guess != correctNumber)
                     {
-                        // Change text color
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        // Wrong number message
-                        Console.WriteLine("Wrong number! Please try again.");
-
-                        // Reset text color
-                        Console.ResetColor();
+                        PrintColorMessage(ConsoleColor.Red, "Wrong number! Please try again.");
                     }
                 }
 
-                // Output success message
-                Console.ForegroundColor = ConsoleColor.Green;
-
-                // Success message
-                Console.WriteLine("You are right on the money!");
-
-                // Reset text color
-                Console.ResetColor();
+                PrintColorMessage(ConsoleColor.Green, "You are right on the money!");
 
                 // Ask to play again
                 Console.WriteLine("Play again? [Y or N]");
@@ -126,6 +106,19 @@ namespace NumberGuesser
             string inputName = Console.ReadLine();
 
             Console.WriteLine($"Hello {inputName}, let's play the game!");
+        }
+
+        // Print color message
+        static void PrintColorMessage(ConsoleColor color, string message)
+        {
+            // Change text color
+            Console.ForegroundColor = color;
+
+            // Not a number message
+            Console.WriteLine(message);
+
+            // Reset text color
+            Console.ResetColor();
         }
     }
 }
