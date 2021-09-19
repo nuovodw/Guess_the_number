@@ -33,7 +33,12 @@ namespace NumberGuesser
             Console.WriteLine($"Hello {inputName}, let's play the game!");
 
             // Set correct number
-            int correctNumber = 1;
+            // int correctNumber = 1;
+
+            // Create a new Random object
+            Random random = new Random();
+
+            int correctNumber = random.Next(1, 10);
 
             // Init guess var
             int guess = 0;
